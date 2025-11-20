@@ -1,5 +1,6 @@
-import sys
 import random
+import sys
+
 import pygame
 
 # Game constants
@@ -48,7 +49,9 @@ class Snake:
 
     def set_direction(self, new_dir):
         # Prevent reversing direction
-        if (self.direction[0] + new_dir[0] == 0) and (self.direction[1] + new_dir[1] == 0):
+        if (self.direction[0] + new_dir[0] == 0) and (
+            self.direction[1] + new_dir[1] == 0
+        ):
             return  # ignore reverse
         self.direction = new_dir
 
@@ -98,8 +101,18 @@ def game_over_screen(screen, clock, score):
     screen.blit(overlay, (0, 0))
 
     draw_text(screen, "GAME OVER", 48, WHITE, WIDTH // 2, HEIGHT // 2 - 40, center=True)
-    draw_text(screen, f"Score: {score}", 32, WHITE, WIDTH // 2, HEIGHT // 2 + 5, center=True)
-    draw_text(screen, "Press Enter to restart or Esc to quit", 20, WHITE, WIDTH // 2, HEIGHT // 2 + 40, center=True)
+    draw_text(
+        screen, f"Score: {score}", 32, WHITE, WIDTH // 2, HEIGHT // 2 + 5, center=True
+    )
+    draw_text(
+        screen,
+        "Press Enter to restart or Esc to quit",
+        20,
+        WHITE,
+        WIDTH // 2,
+        HEIGHT // 2 + 40,
+        center=True,
+    )
     pygame.display.flip()
 
     waiting = True
